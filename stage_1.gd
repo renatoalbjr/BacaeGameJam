@@ -2,6 +2,10 @@ extends Node2D
 
 @export var NextStage : PackedScene
 
+@onready var music = get_node("../AudioStreamPlayer")
+
+func _ready():
+	music.playing = true
 
 
 func _on_goal_area_entered(area):
