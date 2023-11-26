@@ -9,5 +9,6 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mhv21")
+volume_db = -3.748
 
 [connection signal="finished" from="AudioStreamPlayer" to="Stage1" method="_on_audio_stream_player_finished"]

@@ -14,6 +14,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Referência ao nó do sprite animado do personagem.
 @onready var sprite = $AnimatedSprite2D
 
+# Sounds
+@onready var jumpEffect = $jumpEffect
+@onready var walkEffect = $walkEffect
+
 func _physics_process(delta):
 	# Aplicação da gravidade quando o personagem não está no chão.
 	if not is_on_floor():
@@ -29,8 +33,11 @@ func _physics_process(delta):
 	if is_on_floor() and sprite.animation != "jump_squat":
 		if direction == 0.0:
 			sprite.play("idle")
+			walkEffect.stop()
 		else:
 			sprite.play("run")
+			if !walkEffect.playing:
+				walkEffect.play()
 
 	# Chamada da função para lidar com eventos de salto.
 	handle_jump_event()
@@ -61,6 +68,7 @@ func handle_jump_event():
 	if !sprite.is_playing() and sprite.animation == "jump_squat":
 		velocity.y = -JUMP_VELOCITY
 		sprite.play("on_air")
+		jumpEffect.play()
 
 	# Ativando o salto quando o botão de salto é pressionado e o personagem está no chão.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
