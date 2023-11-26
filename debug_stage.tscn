@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://xby20v6xxpfb"]
+
+ [gd_scene load_steps=4 format=3 uid="uid://l4tt1u6p73bq"]
 
 [ext_resource type="PackedScene" uid="uid://o7mgeea2kcqg" path="res://player.tscn" id="1_unhjs"]
 [ext_resource type="PackedScene" uid="uid://d2pvcnc0g0fo5" path="res://tile_map.tscn" id="2_fnctq"]
+[ext_resource type="PackedScene" uid="uid://6m65pyu7bj3g" path="res://gray_tile_map.tscn" id="3_o1as6"]
 
 [node name="DebugStage" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_unhjs")]
 
 [node name="TileMap" parent="." instance=ExtResource("2_fnctq")]
+
+[node name="GrayTileMap" parent="." instance=ExtResource("3_o1as6")]
