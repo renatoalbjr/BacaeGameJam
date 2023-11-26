@@ -7,7 +7,6 @@ var distance_from_player = 25  # Distância do NPC para o jogador
 
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 
-
 @onready var sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
@@ -53,7 +52,6 @@ func handle_jump_event():
 
 	# Ativando o salto quando o botão de salto é pressionado e o personagem está no chão.
 	if Input.is_action_just_pressed("ui_accept") and $RayCast2D.is_colliding():
-		print('kkk')
 		sprite.play("jump_squat")
 		
 # Lidando com eventos de colisão.

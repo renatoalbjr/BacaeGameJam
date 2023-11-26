@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr5q3f53515t6"]
+[gd_scene load_steps=13 format=3 uid="uid://dr5q3f53515t6"]
 
 [ext_resource type="Script" path="res://stage_1.gd" id="1_o8t7d"]
 [ext_resource type="PackedScene" uid="uid://o7mgeea2kcqg" path="res://player.tscn" id="2_io0af"]
@@ -6,12 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bw5r5sxmvpuys" path="res://enemy.tscn" id="3_7urlk"]
 [ext_resource type="PackedScene" uid="uid://u2ohfncfwqcw" path="res://item_drop.tscn" id="5_x16q0"]
 [ext_resource type="PackedScene" uid="uid://7ikg42fanai7" path="res://brother.tscn" id="6_ak8vq"]
+[ext_resource type="Script" path="res://Area2D.gd" id="7_govr7"]
+[ext_resource type="PackedScene" uid="uid://brna5anay0gcc" path="res://label_interaction1.tscn" id="7_ntk1w"]
+[ext_resource type="Script" path="res://CollisionShape2D.gd" id="7_p3ixp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k21wk"]
 size = Vector2(128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yc5"]
 size = Vector2(256, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48jc5"]
+size = Vector2(65, 61.5)
 
 [node name="Stage1" type="Node2D"]
 script = ExtResource("1_o8t7d")
@@ -99,4 +105,22 @@ position = Vector2(992, 560)
 [node name="ItemDrop" parent="." instance=ExtResource("5_x16q0")]
 position = Vector2(960, 360)
 
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("7_govr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1120, 225)
+shape = SubResource("RectangleShape2D_48jc5")
+script = ExtResource("7_p3ixp")
+
+[node name="Label" parent="." instance=ExtResource("7_ntk1w")]
+visible = false
+offset_left = 1041.0
+offset_top = 148.0
+offset_right = 1083.0
+offset_bottom = 174.0
+
 [connection signal="area_entered" from="Goal" to="." method="_on_goal_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

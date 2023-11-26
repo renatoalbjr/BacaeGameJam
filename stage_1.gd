@@ -17,3 +17,7 @@ func _on_goal_area_entered(area):
 
 func _on_enemy_player_caught():
 	$Player.queue_free()
+
+
+func _on_audio_stream_player_finished():
+	music.playing = true
