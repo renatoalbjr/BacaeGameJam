@@ -1,10 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw5r5sxmvpuys"]
+[gd_scene load_steps=11 format=3 uid="uid://bw5r5sxmvpuys"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_37gee"]
 [ext_resource type="PackedScene" uid="uid://b0jke2ux2shrs" path="res://detection_cone.tscn" id="2_71u5u"]
+[ext_resource type="Texture2D" uid="uid://dk13yanynlmhl" path="res://assets/SPRITES CAPANGA-01.png" id="2_sfyy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fie4e"]
+atlas = ExtResource("2_sfyy7")
+region = Rect2(0, 0, 94, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gscaq"]
+atlas = ExtResource("2_sfyy7")
+region = Rect2(114, 0, 94, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yi4s"]
+atlas = ExtResource("2_sfyy7")
+region = Rect2(228, 0, 94, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxp4x"]
+atlas = ExtResource("2_sfyy7")
+region = Rect2(342, 0, 94, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4hg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fie4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gscaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yi4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxp4x")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpql6"]
-size = Vector2(32, 32)
+size = Vector2(16, 32)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_tlioy"]
 
@@ -13,8 +50,13 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_37gee")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-0.25, -0.25)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(0.170213, 0.172043)
+sprite_frames = SubResource("SpriteFrames_x4hg4")
+animation = &"run"
+frame_progress = 0.843253
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vpql6")
@@ -22,10 +64,10 @@ shape = SubResource("RectangleShape2D_vpql6")
 [node name="DetectionCone" parent="." instance=ExtResource("2_71u5u")]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -24.0
-offset_top = -32.0
-offset_right = 24.0
-offset_bottom = -24.0
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -20.0
 value = 100.0
 fill_mode = 6
 nine_patch_stretch = true
