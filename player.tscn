@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://o7mgeea2kcqg"]
+[gd_scene load_steps=16 format=3 uid="uid://o7mgeea2kcqg"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_hei4r"]
 [ext_resource type="Texture2D" uid="uid://dfja0wrwnsdsl" path="res://assets/SPRITES HEROINA1-01.png" id="2_ehxce"]
 [ext_resource type="PackedScene" uid="uid://djuw2hwiojlgy" path="res://item_1.tscn" id="2_idlpq"]
 [ext_resource type="Texture2D" uid="uid://dcrbh45wshbxt" path="res://assets/SPRITES HEROINA2-01.png" id="3_5ceec"]
+[ext_resource type="Texture2D" uid="uid://blj3frgb3wxtw" path="res://assets/Cenario cidade_Prancheta 1.png" id="4_0ycvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e80ye"]
 atlas = ExtResource("2_ehxce")
@@ -44,7 +45,7 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_x86yt")
 }],
 "loop": false,
@@ -83,7 +84,7 @@ size = Vector2(16, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma1vi"]
 size = Vector2(16, 24)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player", "characters"]]
 collision_mask = 2
 script = ExtResource("1_hei4r")
 
@@ -91,12 +92,18 @@ script = ExtResource("1_hei4r")
 position = Vector2(-5.96046e-08, -1.90735e-06)
 scale = Vector2(0.188235, 0.184615)
 sprite_frames = SubResource("SpriteFrames_72ia6")
-animation = &"jump_squat"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6r3dg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = -5
+position = Vector2(-2, -1)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("4_0ycvj")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 4
