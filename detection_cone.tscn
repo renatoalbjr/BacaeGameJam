@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://detection_cone.gd" id="1_ljbk5"]
 
 [node name="DetectionCone" type="Node2D"]
+scale = Vector2(-1, -1)
 script = ExtResource("1_ljbk5")
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]

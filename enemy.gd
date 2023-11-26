@@ -23,13 +23,13 @@ func _physics_process(delta):
 			alert -= ALERT_DECREASE * delta
 		if position.x <= starting_position.x - LEFT_PATROL_DISTANCE:
 			direction = Vector2.RIGHT
+			scale.x = -1
 		elif position.x >= starting_position.x + RIGHT_PATROL_DISTANCE:
 			direction = Vector2.LEFT
+			scale.x = -1
+			
 		velocity = direction * SPEED
-		scale.x = direction.x
 		move_and_slide()
-		print(direction.x)
-		print(scale.x)
 	else:
 		if alert <= 100.0:
 			alert += ALERT_RATE * delta
