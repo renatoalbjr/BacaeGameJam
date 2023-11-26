@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0jke2ux2shrs"]
 
-[ext_resource type="Script" path="res://detection_cone.gd" id="1_ljbk5"]
+[ext_resource type="Script" path="res://components/detection_cone/detection_cone.gd" id="1_051ao"]
 
 [node name="DetectionCone" type="Node2D"]
-script = ExtResource("1_ljbk5")
+script = ExtResource("1_051ao")
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]
 target_position = Vector2(192, 0)
