@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bw5r5sxmvpuys"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_37gee"]
-[ext_resource type="Texture2D" uid="uid://d325ucsin7wbl" path="res://assets/tiles_packed.png" id="2_63wa8"]
-[ext_resource type="PackedScene" uid="uid://b0jke2ux2shrs" path="res://detection_cone.tscn" id="2_71u5u"]
+[ext_resource type="Script" path="res://components/enemy/enemy.gd" id="1_2nia0"]
+[ext_resource type="Texture2D" uid="uid://d325ucsin7wbl" path="res://assets/tiles_packed.png" id="2_pb2xx"]
+[ext_resource type="PackedScene" uid="uid://b0jke2ux2shrs" path="res://components/detection_cone/detection_cone.tscn" id="3_gscke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpql6"]
 size = Vector2(32, 32)
@@ -12,17 +12,16 @@ size = Vector2(32, 32)
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_37gee")
+script = ExtResource("1_2nia0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(-0.25, -0.25)
-texture = ExtResource("2_63wa8")
+texture = ExtResource("2_pb2xx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vpql6")
 
-[node name="DetectionCone" parent="." instance=ExtResource("2_71u5u")]
-scale = Vector2(-1, -1)
+[node name="DetectionCone" parent="." instance=ExtResource("3_gscke")]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -24.0
