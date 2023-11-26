@@ -1,5 +1,4 @@
-
- [gd_scene load_steps=4 format=3 uid="uid://l4tt1u6p73bq"]
+[gd_scene load_steps=4 format=3 uid="uid://l4tt1u6p73bq"]
 
 [ext_resource type="PackedScene" uid="uid://o7mgeea2kcqg" path="res://player.tscn" id="1_unhjs"]
 [ext_resource type="PackedScene" uid="uid://d2pvcnc0g0fo5" path="res://tile_map.tscn" id="2_fnctq"]
@@ -12,3 +11,4 @@
 [node name="TileMap" parent="." instance=ExtResource("2_fnctq")]
 
 [node name="GrayTileMap" parent="." instance=ExtResource("3_o1as6")]
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0)
