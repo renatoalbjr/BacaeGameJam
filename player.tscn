@@ -44,7 +44,7 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_x86yt")
 }],
 "loop": false,
@@ -83,7 +83,7 @@ size = Vector2(16, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma1vi"]
 size = Vector2(16, 24)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player", "characters"]]
 collision_mask = 2
 script = ExtResource("1_hei4r")
 
@@ -91,7 +91,7 @@ script = ExtResource("1_hei4r")
 position = Vector2(-5.96046e-08, -1.90735e-06)
 scale = Vector2(0.188235, 0.184615)
 sprite_frames = SubResource("SpriteFrames_72ia6")
-animation = &"jump_squat"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6r3dg")

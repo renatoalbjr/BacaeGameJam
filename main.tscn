@@ -9,3 +9,5 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mhv21")
+
+[connection signal="finished" from="AudioStreamPlayer" to="Stage1" method="_on_audio_stream_player_finished"]
