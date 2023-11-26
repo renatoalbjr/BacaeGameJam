@@ -2,8 +2,6 @@ extends Node2D
 
 @export var NextStage : PackedScene
 
-
-
 func _on_goal_area_entered(area):
 	var next_stage = NextStage.instantiate()
 	get_tree().root.add_child(next_stage)
