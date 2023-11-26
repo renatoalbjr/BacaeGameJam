@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://6m65pyu7bj3g"]
+
+[ext_resource type="Texture2D" uid="uid://djl13pgbknnvv" path="res://assets/tiles2.png" id="1_tfj3o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47nhi"]
+texture = ExtResource("1_tfj3o")
+texture_region_size = Vector2i(18, 18)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_u78k2"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
+sources/0 = SubResource("TileSetAtlasSource_47nhi")
+
+[node name="GrayTileMap" type="TileMap"]
+tile_set = SubResource("TileSet_u78k2")
+format = 2
