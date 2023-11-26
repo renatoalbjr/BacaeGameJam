@@ -44,7 +44,7 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_x86yt")
 }],
 "loop": false,
@@ -91,7 +91,7 @@ script = ExtResource("1_hei4r")
 position = Vector2(-5.96046e-08, -1.90735e-06)
 scale = Vector2(0.188235, 0.184615)
 sprite_frames = SubResource("SpriteFrames_72ia6")
-animation = &"jump_squat"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6r3dg")
