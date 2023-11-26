@@ -22,6 +22,6 @@ func is_detecting():
 	for raycast in colliders:
 		if raycast.is_colliding():
 			var colliding_body = raycast.get_collider()
-			if colliding_body and colliding_body.is_in_group("Player"):
+			if colliding_body and colliding_body.is_in_group("characters"):
 				return true
 	return false
