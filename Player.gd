@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var direction = 0.0
 
 # Variável que indica se o personagem está pulando no momento.
-var is_jumping: bool = false
 
 # Obtendo a gravidade do ambiente do jogo.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -65,7 +64,6 @@ func handle_jump_event():
 
 	# Ativando o salto quando o botão de salto é pressionado e o personagem está no chão.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		is_jumping = true
 		sprite.play("jump_squat")
 		
 # Lidando com eventos de colisão.
