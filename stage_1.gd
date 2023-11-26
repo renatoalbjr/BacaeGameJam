@@ -5,7 +5,8 @@ extends Node2D
 @onready var music = get_node("../AudioStreamPlayer")
 
 func _ready():
-	music.playing = true
+	if(music != null):
+		music.playing = true;
 
 
 func _on_goal_area_entered(area):

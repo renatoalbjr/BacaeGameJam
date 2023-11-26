@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckwmjir4a53qu"]
+
+[ext_resource type="TileSet" uid="uid://dk6m6m65oxvtp" path="res://assets/default_tileset.tres" id="1_2ln1s"]
+[ext_resource type="Script" path="res://moving_platform.gd" id="1_qg30c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqovw"]
+size = Vector2(48, 16)
+
+[sub_resource type="Animation" id="Animation_gomd1"]
+resource_name = "moving_platform"
+length = 10.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_14ae7"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flkpf"]
+_data = {
+"RESET": SubResource("Animation_14ae7"),
+"moving_platform": SubResource("Animation_gomd1")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_qg30c")
+duration = 1000
+distance = 100.0
+
+[node name="AnimatableBody" type="AnimatableBody2D" parent="."]
+position = Vector2(92, 0)
+collision_layer = 2
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="TileMap" type="TileMap" parent="AnimatableBody"]
+tile_set = ExtResource("1_2ln1s")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 131072, 0, 2, 196608, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody"]
+position = Vector2(24, 8)
+shape = SubResource("RectangleShape2D_iqovw")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody"]
+autoplay = "moving_platform"
+libraries = {
+"": SubResource("AnimationLibrary_flkpf")
+}
