@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://o7mgeea2kcqg"]
+[gd_scene load_steps=17 format=3 uid="uid://o7mgeea2kcqg"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_hei4r"]
 [ext_resource type="Texture2D" uid="uid://dfja0wrwnsdsl" path="res://assets/SPRITES HEROINA1-01.png" id="2_ehxce"]
 [ext_resource type="PackedScene" uid="uid://djuw2hwiojlgy" path="res://item_1.tscn" id="2_idlpq"]
 [ext_resource type="Texture2D" uid="uid://dcrbh45wshbxt" path="res://assets/SPRITES HEROINA2-01.png" id="3_5ceec"]
+[ext_resource type="AudioStream" uid="uid://bftbwi8jx0exj" path="res://assets/cartoon-jump.mp3" id="5_ltquo"]
+[ext_resource type="AudioStream" uid="uid://b5ss0b6q5fitl" path="res://assets/walk.mp3" id="6_yfmec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e80ye"]
 atlas = ExtResource("2_ehxce")
@@ -107,5 +109,15 @@ shape = SubResource("RectangleShape2D_ma1vi")
 [node name="Inventory" type="Node" parent="."]
 
 [node name="Item1" parent="Inventory" instance=ExtResource("2_idlpq")]
+
+[node name="jumpEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ltquo")
+volume_db = 0.86
+pitch_scale = 0.9
+
+[node name="walkEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yfmec")
+volume_db = -4.952
+pitch_scale = 1.76
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

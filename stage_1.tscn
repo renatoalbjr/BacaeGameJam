@@ -114,7 +114,6 @@ shape = SubResource("RectangleShape2D_48jc5")
 script = ExtResource("7_p3ixp")
 
 [node name="Label" parent="." instance=ExtResource("7_ntk1w")]
-visible = false
 offset_left = 1041.0
 offset_top = 148.0
 offset_right = 1083.0
@@ -123,4 +122,3 @@ offset_bottom = 174.0
 [connection signal="area_entered" from="Goal" to="." method="_on_goal_area_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
