@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://oub803bumns7"]
+
+[ext_resource type="Texture2D" uid="uid://cd4mcgjhcaj7r" path="res://icon.svg" id="2_8tser"]
+[ext_resource type="Script" path="res://test_item_use.gd" id="2_gmass"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_8tser")
+script = ExtResource("2_gmass")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 4.17233e-07)
+scale = Vector2(0.8, 0.8)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
