@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw5r5sxmvpuys"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_37gee"]
+[ext_resource type="PackedScene" uid="uid://b0jke2ux2shrs" path="res://detection_cone.tscn" id="2_71u5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpql6"]
+size = Vector2(32, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tlioy"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_37gee")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-0.25, -0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vpql6")
+
+[node name="DetectionCone" parent="." instance=ExtResource("2_71u5u")]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -24.0
+value = 100.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_progress = SubResource("CanvasTexture_tlioy")
+tint_progress = Color(0.768627, 0, 0.305882, 1)
